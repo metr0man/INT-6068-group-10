@@ -1,4 +1,4 @@
-##pybullet版本: 使用PyBullet内置的GUI渲染，提供真实的3D物理可视化:
+## pybullet版本: 使用PyBullet内置的GUI渲染，提供真实的3D物理可视化:
 
 模块化设计，分为多个文件：scene_creation.py、path_planning.py、reward_system.py
 主类DronePathPlanningSimulation协调各个模块
