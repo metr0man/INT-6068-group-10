@@ -1,0 +1,2 @@
+deeplearning1是针对静态环境下的简化环境的训练尝试
+deeplearning2是进一步的修改，增大训练量等，还未完成

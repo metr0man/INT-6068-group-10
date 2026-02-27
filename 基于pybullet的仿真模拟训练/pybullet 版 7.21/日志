@@ -1,0 +1,13 @@
+训练结果会保存在/root/drone_acceleration_control/rl_models/
+
+模型保存位置
+训练过程中，train_rl.py 会将训练好的模型（如 ppo_path.zip 或 ppo_dynamics.zip）保存在
+Apply to 日志
+/
+目录下。
+奖励曲线等文件
+奖励曲线（如 rewards_path.npy、rewards_dynamics.npy 或图片等）也会保存在同一目录。
+下次继续使用
+你可以在下次训练时，修改 train_rl.py，让它加载已有模型继续训练（fine-tune），或者直接用已有模型进行测试/推理。
+如果 train_rl.py 已经支持断点续训（如有 load 参数或自动检测模型文件），直接运行即可继续。
+如果没有自动加载功能，你可以手动在代码中添加 model = PPO.load('rl_models/xxx.zip', env=env) 继续训练。
