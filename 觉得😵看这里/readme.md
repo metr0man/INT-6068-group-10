@@ -99,6 +99,7 @@ drone-rl-tutorial/
 
 #### **第1步：从深度学习实验开始** ⭐ **最适合新手**
 **原因**：环境简单，算法清晰，易于理解和调试
+
 deeplearning1是针对静态环境下的简化环境的训练尝试
 deeplearning2是进一步的修改，增大训练量等，还未完成
 ```bash
@@ -271,4 +272,5 @@ python train.py
 如果这个项目对你有帮助，请给它一个Star！
 
 [![Star History Chart](https://api.star-history.com/svg?repos=your-username/drone-rl-tutorial&type=Date)](https://star-history.com/#your-username/drone-rl-tutorial&Date)
+
 
