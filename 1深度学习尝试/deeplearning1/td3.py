@@ -36,6 +36,9 @@ class TD3:
         
         # 从经验回放中采样
         states, actions, rewards, next_states, dones = replay_buffer.sample(batch_size)
+        # NOTE: 这里的 rewards/dones 形状当前是 [batch]（见 ReplayBuffer.sample），
+        # 而 critic/target_q 很常见是 [batch, 1]。PyTorch 会发生广播，通常不报错但可能造成
+        # 隐蔽的训练异常。更稳妥做法是把 rewards/dones reshape 成 [batch, 1] 再参与计算。
         
         # Critic网络更新
         with torch.no_grad():
