@@ -1,0 +1,199 @@
+{
+  "main": {
+    "id": "781c8503c96f9165",
+    "type": "split",
+    "children": [
+      {
+        "id": "d16945e258c56e20",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8028ba48b551e8f3",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png"
+              },
+              "icon": "lucide-image",
+              "title": "training_log_correlation_heatmap"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d617ea7b2788073e",
+    "type": "split",
+    "children": [
+      {
+        "id": "1d4e29551ad96ce1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "14634dd594ab8e82",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "9c748ca10cf7deb5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "c0cc081f48974dc4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "3632041b775f3f77",
+    "type": "split",
+    "children": [
+      {
+        "id": "318426a97d2dcdbd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f1729d4f939c7a5d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "training_log_correlation_heatmap 的反向链接列表"
+            }
+          },
+          {
+            "id": "70f933d68b107b74",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "training_log_correlation_heatmap 的出链列表"
+            }
+          },
+          {
+            "id": "bb1422a9a6ced7a4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "300878c990470d5f",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "19c15fd71c3c2fe0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "training_log_correlation_heatmap 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "8028ba48b551e8f3",
+  "lastOpenFiles": [
+    "0觉得😵看这里/基于强化学习的三维仿真智能体路径规划.pptx",
+    "0觉得😵看这里/介绍.txt",
+    "AIGC第四组海报(1).pptx  -   (1).pdf",
+    "0觉得😵看这里/AIGC第四组海报(1).pptx  -   (1).pdf",
+    "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png",
+    "2基于简化仿真模拟的图像分析/visualizations/training_log_20250723_103839_correlation_heatmap.png",
+    "2基于简化仿真模拟的图像分析/visualizations/steps_trend.png",
+    "2基于简化仿真模拟的图像分析/visualizations/reward_vs_steps.png",
+    "2基于简化仿真模拟的图像分析/visualizations/reward_trend.png",
+    "README.md",
+    "0觉得😵看这里/readme.md",
+    "CLAUDE.md"
+  ]
+}
