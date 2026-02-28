@@ -29,6 +29,8 @@ class DroneEnv:
         生成当前状态向量
         返回：拼接后的状态向量 [x,y,z, dx,dy,dz]
         """
+        # NOTE: 这里的 direction 未做归一化/裁剪，数值尺度会随“离目标远近”变化，
+        # 可能导致网络输入分布漂移、训练不稳定。常见做法：direction 归一化 + 单独提供距离标量。
         direction = self.target - self.position  # 计算目标方向向量
         return np.concatenate([self.position, direction])
 
@@ -44,6 +46,8 @@ class DroneEnv:
             info: 调试信息
         """
         # 物理模拟（简化版）
+        # NOTE: 环境内部未对 action 做 clip。当前 TD3.select_action() 会 clip 到 [-1, 1]，
+        # 但若未来更换策略/调试时传入越界动作，可能导致状态更新与越界惩罚逻辑异常。
         self.position += action * 0.1  # 按动作更新位置
         self.step_count += 1
         
