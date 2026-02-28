@@ -128,6 +128,8 @@ drone-rl-tutorial/
 
 deeplearning1是针对静态环境下的简化环境的训练尝试
 deeplearning2是进一步的修改，增大训练量等，还未完成
+##### [点击链接跳转Colab，逐步运行即可预览deeplearning1，省去环境部署（但是跑完要很久）](https://colab.research.google.com/drive/1do7k5KFhJ-CpMvLQHdmNUIqYWpbaNtfp#scrollTo=ZqEK_3Anj6BC)
+本地运行，在终端输入：
 ```bash
 # 进入最简单的实验环境
 cd drone-rl-tutorial/deeplearning1

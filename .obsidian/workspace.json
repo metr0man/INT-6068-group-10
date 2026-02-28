@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1深度学习尝试/deeplearning1/Readme.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Readme"
+              "title": "README"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1深度学习尝试/deeplearning1/Readme.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Readme 的反向链接列表"
+              "title": "README 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1深度学习尝试/deeplearning1/Readme.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Readme 的出链列表"
+              "title": "README 的出链列表"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1深度学习尝试/deeplearning1/Readme.md",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Readme 的大纲"
+              "title": "README 的大纲"
             }
           }
         ]
@@ -185,13 +185,14 @@
   },
   "active": "8028ba48b551e8f3",
   "lastOpenFiles": [
+    "0觉得😵看这里/readme.md",
+    "1深度学习尝试/deeplearning1/Readme.md",
+    "2简化仿真模拟环境下的结果/Readme.md",
     "9b3cf8c7-193c-4a6c-b798-41264cc369ca.png",
     "ff5a542a-3368-43ae-b2f0-e0b020c2ef9b.png",
     "Pasted image 20260228164137.png",
     "Pasted image 20260228164114.png",
     "1深度学习尝试/deeplearning1/reward_curve.png",
-    "1深度学习尝试/deeplearning1/Readme.md",
-    "0觉得😵看这里/readme.md",
     "README.md",
     "0觉得😵看这里/~$基于强化学习的三维仿真智能体路径规划.pptx",
     "2基于简化仿真模拟的图像分析/visualizations/training_log_20250723_103839_correlation_heatmap.png",
