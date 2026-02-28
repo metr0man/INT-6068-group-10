@@ -11,14 +11,12 @@
             "id": "8028ba48b551e8f3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "2简化仿真模拟环境下的结果/Readme.md",
-                "mode": "source",
-                "source": false
+                "file": "0觉得😵看这里/萝卜纸巾图/9b3cf8c7-193c-4a6c-b798-41264cc369ca.png"
               },
-              "icon": "lucide-file",
-              "title": "Readme"
+              "icon": "lucide-image",
+              "title": "9b3cf8c7-193c-4a6c-b798-41264cc369ca"
             }
           }
         ]
@@ -94,7 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2简化仿真模拟环境下的结果/Readme.md",
+                "file": "0觉得😵看这里/萝卜纸巾图/9b3cf8c7-193c-4a6c-b798-41264cc369ca.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +102,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Readme 的反向链接列表"
+              "title": "9b3cf8c7-193c-4a6c-b798-41264cc369ca 的反向链接列表"
             }
           },
           {
@@ -113,12 +111,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2简化仿真模拟环境下的结果/Readme.md",
+                "file": "0觉得😵看这里/萝卜纸巾图/9b3cf8c7-193c-4a6c-b798-41264cc369ca.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Readme 的出链列表"
+              "title": "9b3cf8c7-193c-4a6c-b798-41264cc369ca 的出链列表"
             }
           },
           {
@@ -156,13 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2简化仿真模拟环境下的结果/Readme.md",
+                "file": "0觉得😵看这里/萝卜纸巾图/9b3cf8c7-193c-4a6c-b798-41264cc369ca.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Readme 的大纲"
+              "title": "9b3cf8c7-193c-4a6c-b798-41264cc369ca 的大纲"
             }
           }
         ]
@@ -185,14 +183,16 @@
   },
   "active": "8028ba48b551e8f3",
   "lastOpenFiles": [
+    "0觉得😵看这里/萝卜纸巾图",
+    "0觉得😵看这里/萝卜纸巾图/ff5a542a-3368-43ae-b2f0-e0b020c2ef9b.png",
+    "0觉得😵看这里/萝卜纸巾图/Pasted image 20260228164114.png",
+    "0觉得😵看这里/萝卜纸巾图/9b3cf8c7-193c-4a6c-b798-41264cc369ca.png",
+    "CLAUDE.md",
+    "2简化仿真模拟环境下的结果/Readme.md",
     "README.md",
     "0觉得😵看这里/readme.md",
     "1深度学习尝试/deeplearning1/Readme.md",
-    "2简化仿真模拟环境下的结果/Readme.md",
-    "9b3cf8c7-193c-4a6c-b798-41264cc369ca.png",
-    "ff5a542a-3368-43ae-b2f0-e0b020c2ef9b.png",
-    "Pasted image 20260228164137.png",
-    "Pasted image 20260228164114.png",
+    "0觉得😵看这里/萝卜纸巾图/Pasted image 20260228164137.png",
     "1深度学习尝试/deeplearning1/reward_curve.png",
     "0觉得😵看这里/~$基于强化学习的三维仿真智能体路径规划.pptx",
     "2基于简化仿真模拟的图像分析/visualizations/training_log_20250723_103839_correlation_heatmap.png",
@@ -203,7 +203,6 @@
     "0觉得😵看这里/AIGC第四组海报(1).pptx  -   (1).pdf",
     "2基于简化仿真模拟的图像分析/visualizations/steps_trend.png",
     "2基于简化仿真模拟的图像分析/visualizations/reward_vs_steps.png",
-    "2基于简化仿真模拟的图像分析/visualizations/reward_trend.png",
-    "CLAUDE.md"
+    "2基于简化仿真模拟的图像分析/visualizations/reward_trend.png"
   ]
 }
