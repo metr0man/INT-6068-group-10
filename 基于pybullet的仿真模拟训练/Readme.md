@@ -2,7 +2,7 @@
 # 建议别碰
 模块化设计，分为多个文件：scene_creation.py、path_planning.py、reward_system.py
 主类DronePathPlanningSimulation协调各个模块
-注意：**不是标准的RL环境，更像是一个路径规划测试平台，如果要看强化学习看静态路径/结合体.py**
+注意：**不是标准的RL环境，更像是一个路径规划测试平台，如果要看强化学习看静态路径/结合体.py和深度学习尝试的td3.py**
 
 
 
