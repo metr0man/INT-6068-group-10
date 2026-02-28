@@ -11,12 +11,10 @@
             "id": "8028ba48b551e8f3",
             "type": "leaf",
             "state": {
-              "type": "image",
-              "state": {
-                "file": "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png"
-              },
-              "icon": "lucide-image",
-              "title": "training_log_correlation_heatmap"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -92,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "training_log_correlation_heatmap 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -111,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "training_log_correlation_heatmap 的出链列表"
+              "title": "出链"
             }
           },
           {
@@ -154,13 +150,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png",
+                "file": "2基于简化仿真模拟的图像分析/visualizations/training_log_20250723_103839_correlation_heatmap.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "training_log_correlation_heatmap 的大纲"
+              "title": "training_log_20250723_103839_correlation_heatmap 的大纲"
             }
           }
         ]
@@ -181,13 +177,13 @@
       "bases:新建数据库": false
     }
   },
-  "active": "8028ba48b551e8f3",
+  "active": "14634dd594ab8e82",
   "lastOpenFiles": [
+    "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png",
     "0觉得😵看这里/基于强化学习的三维仿真智能体路径规划.pptx",
     "0觉得😵看这里/介绍.txt",
     "AIGC第四组海报(1).pptx  -   (1).pdf",
     "0觉得😵看这里/AIGC第四组海报(1).pptx  -   (1).pdf",
-    "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png",
     "2基于简化仿真模拟的图像分析/visualizations/training_log_20250723_103839_correlation_heatmap.png",
     "2基于简化仿真模拟的图像分析/visualizations/steps_trend.png",
     "2基于简化仿真模拟的图像分析/visualizations/reward_vs_steps.png",
