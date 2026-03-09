@@ -1,40 +1,47 @@
-import copy
-import numpy as np
-import torch
-import torch.nn.functional as F  # 添加导入
-import torch.optim as optim
+import copy          # 深拷贝：用于创建和主网络完全独立的目标网络
+import numpy as np   # 数值计算：处理状态/动作数组、随机采样/加噪声
+import torch         # PyTorch核心：构建神经网络、张量运算、梯度计算
+import torch.nn.functional as F  # 函数式接口：这里用MSE损失计算,在datamining和deep learning中都有讲
+import torch.optim as optim       # 优化器：Adam更新网络参数（Adam 是强化学习最常用的优化器）
 
-from model import Actor, Critic
+from model import Actor, Critic  # 导入Actor（策略网络）、Critic（价值网络）
 
 class TD3:
     def __init__(self, state_dim, action_dim, max_action):
+        # state_dim：状态空间维度（比如机器人的位置 + 速度，维度为 6）；
+        # action_dim：动作空间维度（比如机械臂 3 个关节，维度为 3）；
+        # max_action：动作的最大值（连续动作需裁剪到 [-max_action, max_action]，保证合法性）
         self.max_action = max_action
         self.actor = Actor(state_dim, action_dim, max_action)
         self.actor_target = copy.deepcopy(self.actor)
-        
+        # self.actor：主 Actor 网络（实时更新，输出当前状态的最优动作）；
+        # self.actor_target：目标 Actor 网络（深拷贝主 Actor，参数更新滞后，用于计算目标 Q 值，避免训练震荡）。
         self.critic = Critic(state_dim, action_dim)
         self.critic_target = copy.deepcopy(self.critic)
+        # self.critic：主 Critic 网络（实时更新，评估当前状态-动作对的价值）；
+        # self.critic_target：目标 Critic 网络（深拷贝主 Critic，参数更新滞后，用于计算目标 Q 值，避免训练震荡）。
         
         self.actor_optimizer = optim.Adam(self.actor.parameters(), lr=3e-4)
         self.critic_optimizer = optim.Adam(self.critic.parameters(), lr=3e-4)
+        # self.actor_optimizer：Actor 网络的优化器（Adam 优化器，学习率 3e-4）；
+        # self.critic_optimizer：Critic 网络的优化器（Adam 优化器，学习率 3e-4）。
         
-        self.discount = 0.99
-        self.tau = 0.005
-        self.policy_noise = 0.2
-        self.noise_clip = 0.5
-        self.policy_freq = 2
-        self.total_it = 0  # 初始化迭代计数器
-
+        self.discount = 0.99        # 折扣因子γ：越接近1越重视远期奖励
+        self.tau = 0.005            # 软更新系数：目标网络参数缓慢更新
+        self.policy_noise = 0.2     # 目标策略平滑的噪声标准差
+        self.noise_clip = 0.5       # 噪声裁剪阈值：避免动作超出范围
+        self.policy_freq = 2        # 策略更新延迟步数：Actor每2步更1次
+        self.total_it = 0           # 迭代计数器：判断是否更新Actor
     def select_action(self, state):
-        state = torch.FloatTensor(state.reshape(1, -1))
-        action = self.actor(state).data.numpy().flatten()
-        noise = np.random.normal(0, self.policy_noise, size=action.shape)
-        return np.clip(action + noise, -self.max_action, self.max_action)
+        state = torch.FloatTensor(state.reshape(1, -1))  # 状态转Tensor，适配网络输入（batch_size=1）
+        action = self.actor(state).data.numpy().flatten()  # Actor输出动作，转numpy并展平
+        noise = np.random.normal(0, self.policy_noise, size=action.shape)  # 生成高斯探索噪声
+        return np.clip(action + noise, -self.max_action, self.max_action)  # 动作+噪声后裁剪
 
     def update(self, replay_buffer, batch_size=100):
-        self.total_it += 1
+        self.total_it += 1  # 每调用一次update，迭代计数器加1
         
-        # 从经验回放中采样
+        # 从经验回放中采样，返回的是 5 个 Tensor：当前状态、执行的动作、获得的奖励、下一个状态、是否终止（done=1 表示 episode 结束）。
         states, actions, rewards, next_states, dones = replay_buffer.sample(batch_size)
         
         # Critic网络更新
