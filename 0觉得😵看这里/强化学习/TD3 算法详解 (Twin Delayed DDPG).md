@@ -168,7 +168,7 @@ for 每一回合 in range(最大回合):
     
     - 不要一上来就训练 GTA5 自动驾驶。
         
-    - 先去搞懂 OpenAI Gym 里的 **CartPole（倒立摆）**，这是 RL 界的“Hello World”。离散动作在这个环境用 PPO 跑跑看。
+    - 先去搞懂 [OpenAI Gym 里的 **CartPole（倒立摆）**](https://zhuanlan.zhihu.com/p/570695189)，这是 RL 界的“Hello World”。离散动作在这个环境用 PPO 跑跑看。
         
     - 连续动作去跑 **Pendulum（单摆）**，用 TD3 跑一下，感受一下参数变化。
         

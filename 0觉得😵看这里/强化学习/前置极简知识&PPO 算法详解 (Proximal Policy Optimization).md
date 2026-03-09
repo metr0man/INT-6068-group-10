@@ -142,5 +142,6 @@ for 迭代次数 in range(最大迭代数):
 
 ---
 
-以上就是为你准备的强化学习核心算法：PPO / DDPG / TD3 新手笔记的第一部分！
-[[DDPG 算法详解 (Deep Deterministic Policy Gradient)]]
+以上就是强化学习核心算法：PPO / DDPG / TD3 新手笔记的第一部分！
+第二部分：[[DDPG 算法详解 (Deep Deterministic Policy Gradient)]]
+第三部分：[[TD3 算法详解 (Twin Delayed DDPG)]]

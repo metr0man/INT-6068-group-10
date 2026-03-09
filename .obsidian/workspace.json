@@ -11,12 +11,14 @@
             "id": "8028ba48b551e8f3",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "0觉得😵看这里/萝卜纸巾图/9b3cf8c7-193c-4a6c-b798-41264cc369ca.png"
+                "file": "0觉得😵看这里/强化学习/TD3 算法详解 (Twin Delayed DDPG).md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "9b3cf8c7-193c-4a6c-b798-41264cc369ca"
+              "icon": "lucide-file",
+              "title": "TD3 算法详解 (Twin Delayed DDPG)"
             }
           }
         ]
@@ -181,18 +183,18 @@
       "bases:新建数据库": false
     }
   },
-  "active": "14634dd594ab8e82",
+  "active": "8028ba48b551e8f3",
   "lastOpenFiles": [
     "0觉得😵看这里/强化学习/前置极简知识&PPO 算法详解 (Proximal Policy Optimization).md",
     "0觉得😵看这里/强化学习/TD3 算法详解 (Twin Delayed DDPG).md",
     "0觉得😵看这里/强化学习/DDPG 算法详解 (Deep Deterministic Policy Gradient).md",
+    "0觉得😵看这里/萝卜纸巾图/9b3cf8c7-193c-4a6c-b798-41264cc369ca.png",
     "0觉得😵看这里/强化学习",
     "0觉得😵看这里/~$基于强化学习的三维仿真智能体路径规划.pptx",
     "0觉得😵看这里/基于强化学习的三维仿真智能体路径规划~7164A.tmp",
     "0觉得😵看这里/萝卜纸巾图",
     "0觉得😵看这里/萝卜纸巾图/ff5a542a-3368-43ae-b2f0-e0b020c2ef9b.png",
     "0觉得😵看这里/萝卜纸巾图/Pasted image 20260228164114.png",
-    "0觉得😵看这里/萝卜纸巾图/9b3cf8c7-193c-4a6c-b798-41264cc369ca.png",
     "CLAUDE.md",
     "2简化仿真模拟环境下的结果/Readme.md",
     "README.md",
