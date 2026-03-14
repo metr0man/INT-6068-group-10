@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1深度学习尝试/deeplearning1/deeplearning1中不严谨及存在严重问题的地方.md",
+                "file": "0觉得😵看这里/强化学习/TD3 算法详解 (Twin Delayed DDPG).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "deeplearning1中不严谨及存在严重问题的地方"
+              "title": "TD3 算法详解 (Twin Delayed DDPG)"
             }
           }
         ]
@@ -185,9 +185,8 @@
   },
   "active": "8028ba48b551e8f3",
   "lastOpenFiles": [
-    "0觉得😵看这里/强化学习/TD3 算法详解 (Twin Delayed DDPG).md",
-    "1深度学习尝试/deeplearning1/deeplearning1中不严谨及存在严重问题的地方.md",
     "0觉得😵看这里/强化学习/前置极简知识&PPO 算法详解 (Proximal Policy Optimization).md",
+    "0觉得😵看这里/强化学习/TD3 算法详解 (Twin Delayed DDPG).md",
     "0觉得😵看这里/强化学习/DDPG 算法详解 (Deep Deterministic Policy Gradient).md",
     "0觉得😵看这里/萝卜纸巾图/9b3cf8c7-193c-4a6c-b798-41264cc369ca.png",
     "0觉得😵看这里/强化学习",
