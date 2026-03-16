@@ -45,21 +45,26 @@ class TD3:
         states, actions, rewards, next_states, dones = replay_buffer.sample(batch_size)
         
         # Critic网络更新
-        with torch.no_grad():
+        with torch.no_grad():  # 上下文：内部计算不回传梯度（目标网络不更新）
+            # 1. 目标策略平滑：给目标Actor的动作加噪声并裁剪
             noise = (torch.randn_like(actions) * self.policy_noise).clamp(-self.noise_clip, self.noise_clip)
             next_actions = (self.actor_target(next_states) + noise).clamp(-self.max_action, self.max_action)
             
+            # 2. 双评论家：目标Critic输出两个Q值，取最小值（减少过估计）
             target_q1, target_q2 = self.critic_target(next_states, next_actions)
             target_q = torch.min(target_q1, target_q2)
+            
+            # 3. TD目标公式：目标Q值 = 即时奖励 + γ*下一个状态的Q值（终止时无后续奖励）
             target_q = rewards + (1 - dones) * self.discount * target_q
         
+        # 计算主Critic的损失（MSE：当前Q值和目标Q值的均方误差）
         current_q1, current_q2 = self.critic(states, actions)
         critic_loss = F.mse_loss(current_q1, target_q) + F.mse_loss(current_q2, target_q)
         
-        self.critic_optimizer.zero_grad()
-        critic_loss.backward()
-        self.critic_optimizer.step()
-        
+        # 更新主Critic网络
+        self.critic_optimizer.zero_grad()  # 清空梯度（避免累积）
+        critic_loss.backward()             # 反向传播计算梯度
+        self.critic_optimizer.step()       # 优化器更新参数        
         # 延迟策略更新
         if self.total_it % self.policy_freq == 0:
             # 修复: 正确获取Q值
