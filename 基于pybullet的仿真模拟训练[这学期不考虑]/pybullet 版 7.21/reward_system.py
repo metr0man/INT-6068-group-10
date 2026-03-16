@@ -45,6 +45,12 @@ class RewardSystem:
         
         for i, target in enumerate(targets):
             # 检查目标是否已经被访问过
+            # NOTE: 这里假设 target 可以挂载属性 visited（target.visited）。
+            # 但在当前项目的其他代码里 targets 往往是 [x, y, z] 形式的 list/ndarray，
+            # 这类对象不能像自定义类一样随意新增属性，执行 target.visited = True 会直接报错。
+            # 如果要记录“目标是否到达”，更稳妥的方式是：
+            # - 用 visited_target_indices: set[int] 记录已达成的目标索引；或
+            # - 把 target 统一封装成 dict/对象（包含 position/visited 字段）。
             if not hasattr(target, 'visited') or not target.visited:
                 target_pos = target  # targets 是 [x, y, z] 列表
                 distance = np.linalg.norm(np.array(drone_pos) - np.array(target_pos))

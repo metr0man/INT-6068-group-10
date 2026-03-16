@@ -231,6 +231,9 @@ class MultiAgentDroneDeliveryEnv(Env):
         # 团队奖励
         num_reached = sum(self.drones_reached_goal)
         if num_reached > 0:
+            # NOTE: 当前团队奖励会发放给“尚未到达目标”的无人机（而不是已到达者或全队共享）。
+            # 这是一种“队友到达->激励剩余无人机继续完成”的设计，但也可能带来 credit assignment 偏差：
+            # 未到达者可能在“自己尚未到达”的情况下获得较大正奖励，从而弱化“必须到达”的训练信号。
             team_reward = 80 * num_reached
             for i in range(self.num_drones):
                 if not self.drones_reached_goal[i]:
@@ -241,7 +244,13 @@ class MultiAgentDroneDeliveryEnv(Env):
                 rewards[i] += 600
             print("所有无人机均到达目标！")
 
+        # NOTE: 这里用 all_terminated 作为环境 terminated（所有无人机都“单体终止”才结束）。
+        # 但当前 step() 在“更新状态”阶段并不会冻结已终止/已到达的无人机，导致它们后续仍会继续移动、耗电、参与碰撞与奖励计算。
+        # 若你期望“单体终止后不再运动/不再受惩罚”，需要在状态更新与奖励计算阶段跳过已终止无人机。
         terminated = all_terminated
+        # NOTE: truncated 的判断与 self.current_step 的自增顺序可能存在 off-by-one 边界差异：
+        # 当前是先判断 self.current_step >= self.max_steps，再 self.current_step += 1。
+        # 若希望“执行满 max_steps 步后截断”，通常会先 +1 再判断，或统一定义 max_steps 的步数语义。
         truncated = self.current_step >= self.max_steps
         self.current_step += 1
 
@@ -294,6 +303,8 @@ class MultiAgentDroneDeliveryEnv(Env):
             reward += 4.0
 
         # 无人机间避碰惩罚
+        # NOTE: 当 self.num_drones < 2（例如单无人机调试/复用环境）时，下面的 min(...) 会对空序列求最小值并抛异常。
+        # 如果未来允许 num_drones==1，需要在 num_drones > 1 时才计算该项惩罚。
         min_drone_dist = min(np.linalg.norm(self.positions[i] - self.positions[drone_idx])
                              for i in range(self.num_drones) if i != drone_idx)
         if min_drone_dist < 2 * self.min_distance_between_drones:
@@ -524,6 +535,8 @@ class MultiAgentDroneDeliveryEnv(Env):
                          'r--', alpha=0.5)
 
         # 信息显示
+        # NOTE: 当 self.num_drones < 2 时，下面的 min(...) 同样会对空序列求最小值并抛异常。
+        # 如果未来支持单无人机渲染，需要在 num_drones > 1 时才计算最小间距（或给一个默认值）。
         min_drone_dist = min(np.linalg.norm(self.positions[i] - self.positions[j])
                              for i in range(self.num_drones)
                              for j in range(i + 1, self.num_drones))

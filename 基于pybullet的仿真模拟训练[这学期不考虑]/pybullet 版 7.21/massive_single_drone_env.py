@@ -123,6 +123,9 @@ class SingleDronePathPlanningEnv(gym.Env):
         self.previous_position = None
         
         # 重新分配目标点（增加随机性）
+        # NOTE: 当前 _assign_target_by_env_id() 是按 env_id % len(targets) 固定选择目标，
+        # reset 并不会带来“每回合随机目标”。如果确实想增加随机性，需要基于 seed/episode
+        # 做随机采样或轮换索引。
         self.target = self._assign_target_by_env_id()
         
         # 更新统计
