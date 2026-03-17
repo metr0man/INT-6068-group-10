@@ -1,0 +1,18 @@
+# 核心科学计算与深度学习
+torch>=2.0.0
+torchvision
+numpy>=1.21.0
+pandas>=1.3.0
+
+# 可视化与监控
+matplotlib>=3.5.0
+seaborn>=0.11.0
+tensorboard>=2.8.0
+tqdm>=4.62.0
+
+# GPU/硬件监控
+GPUtil>=1.4.0
+psutil>=5.8.0
+
+# 可选：Jupyter 增强（若在 notebook 内已装可省略）
+ipywidgets>=7.6.0
