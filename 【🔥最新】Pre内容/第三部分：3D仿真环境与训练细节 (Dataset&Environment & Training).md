@@ -67,7 +67,9 @@
 #### 1. 动态障碍物生成示意图 (放于 Slide 8)
 
 - **建议操作**：不用找网图，直接用你们代码里的 Plotly 跑两次不同的随机环境。截图两次不同的 3D 场景（起点、终点和红色半透明球体位置不同），并排放在 PPT 上，打上标签“**Episode M 的环境**” vs “**Episode N 的环境**”，视觉冲击力极强。
+
     
+<img width="1714" height="694" alt="image" src="https://github.com/user-attachments/assets/f57fb8be-d476-4224-a8ca-40e7829cccc3" />
 
 #### 2. PyTorch CUDA 代码截图 (放于 Slide 9)
 
