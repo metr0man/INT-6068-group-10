@@ -6,7 +6,7 @@
 
 #### **Slide 1: 封面**
 
-- **主标题**：基于强化学习的无人机三维路径规划与避障仿真
+- **主标题**：基于强化学习的无人机三维路径规划与避障仿真（萝卜纸巾）
     
 - **副标题**：Neural Networks and Deep Learning Group Project
     
