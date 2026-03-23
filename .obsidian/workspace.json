@@ -183,8 +183,14 @@
       "bases:新建数据库": false
     }
   },
-  "active": "8028ba48b551e8f3",
+  "active": "14634dd594ab8e82",
   "lastOpenFiles": [
+    "【🔥最新】Pre内容/Reference/基于 RL 的无人机路径规划文献综述.md",
+    "【🔥最新】Pre内容/Reference/利用TD3训练神经网络使四旋翼无人机飞越FPV门 _ alphaXiv.pdf",
+    "【🔥最新】Pre内容/Reference/TinyNav End-to-End TinyML for Real-TimeAutonomous Navigation on Microcontrollers.pdf",
+    "【🔥最新】Pre内容/Reference/TD3Addressing Function Approximation Error in Actor-Critic Methods.pdf",
+    "【🔥最新】Pre内容/Reference/Research Report Implementing TD3 to Train a Neural Network to Fly a Quadcopter Through an FPV Gate.md",
+    "【🔥最新】Pre内容/Reference",
     "0觉得😵看这里/强化学习/前置极简知识&PPO 算法详解 (Proximal Policy Optimization).md",
     "0觉得😵看这里/强化学习/TD3 算法详解 (Twin Delayed DDPG).md",
     "0觉得😵看这里/强化学习/DDPG 算法详解 (Deep Deterministic Policy Gradient).md",
@@ -206,8 +212,6 @@
     "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png",
     "0觉得😵看这里/基于强化学习的三维仿真智能体路径规划.pptx",
     "0觉得😵看这里/介绍.txt",
-    "AIGC第四组海报(1).pptx  -   (1).pdf",
-    "0觉得😵看这里/AIGC第四组海报(1).pptx  -   (1).pdf",
     "2基于简化仿真模拟的图像分析/visualizations/steps_trend.png",
     "2基于简化仿真模拟的图像分析/visualizations/reward_vs_steps.png",
     "2基于简化仿真模拟的图像分析/visualizations/reward_trend.png"
