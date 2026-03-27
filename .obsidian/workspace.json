@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0觉得😵看这里/强化学习/TD3 算法详解 (Twin Delayed DDPG).md",
+                "file": "【🔥最新】Pre内容/第二部分：核心算法与神经网络细节 (Algorithm & Technical Details).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TD3 算法详解 (Twin Delayed DDPG)"
+              "title": "第二部分：核心算法与神经网络细节 (Algorithm & Technical Details)"
             }
           }
         ]
@@ -183,8 +183,10 @@
       "bases:新建数据库": false
     }
   },
-  "active": "14634dd594ab8e82",
+  "active": "8028ba48b551e8f3",
   "lastOpenFiles": [
+    "【🔥最新】Pre内容/第一部分：项目背景与 MDP 建模.md",
+    "0觉得😵看这里/强化学习/TD3 算法详解 (Twin Delayed DDPG).md",
     "【🔥最新】Pre内容/Reference/基于 RL 的无人机路径规划文献综述.md",
     "【🔥最新】Pre内容/Reference/利用TD3训练神经网络使四旋翼无人机飞越FPV门 _ alphaXiv.pdf",
     "【🔥最新】Pre内容/Reference/TinyNav End-to-End TinyML for Real-TimeAutonomous Navigation on Microcontrollers.pdf",
@@ -192,7 +194,6 @@
     "【🔥最新】Pre内容/Reference/Research Report Implementing TD3 to Train a Neural Network to Fly a Quadcopter Through an FPV Gate.md",
     "【🔥最新】Pre内容/Reference",
     "0觉得😵看这里/强化学习/前置极简知识&PPO 算法详解 (Proximal Policy Optimization).md",
-    "0觉得😵看这里/强化学习/TD3 算法详解 (Twin Delayed DDPG).md",
     "0觉得😵看这里/强化学习/DDPG 算法详解 (Deep Deterministic Policy Gradient).md",
     "0觉得😵看这里/萝卜纸巾图/9b3cf8c7-193c-4a6c-b798-41264cc369ca.png",
     "0觉得😵看这里/强化学习",

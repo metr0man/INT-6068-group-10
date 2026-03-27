@@ -4,102 +4,90 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an academic project (INT6068 - Neural Networks & Deep Learning) implementing **3D drone path planning via reinforcement learning**. It contains three independent sub-projects that evolved iteratively.
+This is an academic project (INT6068 - Neural Networks & Deep Learning) implementing **3D drone path planning via reinforcement learning**. The project evolved from a PyBullet physics simulation to focus on simplified lightweight simulations and custom TD3 deep learning implementations.
 
-## Sub-Projects & Entry Points
+**Note:** The PyBullet sub-project (`基于pybullet的仿真模拟训练/`) was an earlier iteration and is no longer maintained — the code referenced in older docs may not exist.
 
-### 1. PyBullet Simulation (Main — `基于pybullet的仿真模拟训练/pybullet 版 7.21/`)
-The primary, most complete implementation using physics-based simulation.
+## Active Sub-Projects & Entry Points
 
+### 1. Deep Learning Experiments (`1深度学习尝试/`)
+
+Custom TD3 (Twin Delayed DDPG) implementation with PyTorch — the current focus of development.
+
+**`deeplearning1/` — Complete TD3 baseline:**
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run simulation/visualization
-python main.py
-
-# Train with PPO (Stable-Baselines3)
-python train_rl.py
-
-# Large-scale parallel training (128 targets, SubprocVecEnv)
-python train_massive_single_drone.py
-
-# Server-mode execution
-python server_run.py
-
-# Analyze training results
-python data_analysis.py
-python line_chart_generator.py
+cd 1深度学习尝试/deeplearning1/
+python train.py
 ```
 
-### 2. Simplified Simulation Results (`简化仿真模拟环境下的结果/`)
-Three variants: static (`静态模拟/`), dynamic (`动态模拟/`), and safety module (`安全模块/`).
-Each has a `结合体.py` as the main entry point.
-
-### 3. Deep Learning Experiments (`深度学习尝试/`)
+**`deeplearning2/` — Enhanced TD3 (in development):**
 ```bash
-# TD3 training on static environment (complete)
-cd deeplearning1 && python train.py
+cd 1深度学习尝试/deeplearning2/
+python train.py
+```
 
-# Enhanced TD3 training (in progress)
-cd deeplearning2 && python train.py
+### 2. Simplified Simulation (`2简化仿真模拟环境下的结果/`)
+
+Lightweight multi-agent drone simulation (no physics engine). Entry point `结合体.py` in each variant:
+
+```bash
+# Static environment
+cd 2简化仿真模拟环境下的结果/静态模拟/
+python 结合体.py
+
+# Dynamic environment
+cd 2简化仿真模拟环境下的结果/动态模拟/
+python 结合体.py
+
+# Safety module
+cd 2简化仿真模拟环境下的结果/安全模块/
+python 结合体.py
 ```
 
 ## Architecture
 
-### PyBullet Version (Modular Design)
+### Deep Learning (`deeplearning1/`)
 
-| File | Class | Responsibility |
-|------|-------|----------------|
-| `scene_creation.py` | `DroneScene` | PyBullet 3D environment, obstacles, targets, drone physics |
-| `path_planning.py` | `PathPlanning` | A* and RRT path finding with path smoothing |
-| `reward_system.py` | `RewardSystem` | Multi-component reward calculation |
-| `massive_single_drone_env.py` | `SingleDronePathPlanningEnv` | Gymnasium-compatible RL environment |
-| `train_rl.py` | — | PPO training loop with SubprocVecEnv parallelization |
-| `main.py` | — | Entry point: loads trained model, runs visual demo |
+| File | Responsibility |
+|------|----------------|
+| `environment.py` | `DroneEnv` — Gymnasium Env: 6-dim state (pos + goal dir), 3-dim action (velocity) |
+| `td3.py` | TD3 class — Actor-Critic with twin Q-networks, target policy smoothing |
+| `model.py` | `Actor` and `Critic` network architectures |
+| `train.py` | Training loop with ReplayBuffer (100k capacity), CSV logging |
+| `analysis.py` | Training metrics analysis |
 
-**State space (35-dim):** position (3) + goal direction (3) + ray distances (26) + velocity (3)
-**Action space (3-dim):** velocity commands (x, y, z)
-**Ray casting:** 26-directional obstacle detection for perception
-**Algorithm:** PPO via Stable-Baselines3; trained for ~6M steps
+**State space (6-dim):** position (3) + goal direction vector (3)
+**Action space (3-dim):** velocity commands [vx, vy, vz] in [-1, 1]
+**Algorithm:** TD3 with dual Critics, policy delay, target action smoothing
 
 ### Simplified Simulation (`结合体.py`)
 
-`MultiAgentDroneDeliveryEnv` handles multi-drone coordination with:
-- KDTree-based city building collision detection
-- Battery/energy constraints
-- Wind effect simulation
-- Matplotlib 3D trajectory visualization
+`MultiAgentDroneDeliveryEnv` — multi-drone coordination environment:
+- **Gymnasium standard** — compatible with `gymnasium.make()`
+- **KDTree** — scipy spatial queries for city building collision detection
+- **Battery/energy** constraints per drone
+- **Wind effect** simulation
+- **Matplotlib 3D** trajectory visualization
 
-### Deep Learning (`deeplearning1/`)
-
-Custom TD3 implementation with separate files:
-- `td3.py` — Actor-Critic networks and TD3 update logic
-- `model.py` — Network architectures
-- `environment.py` — `DroneEnv` custom Gym environment
-- `analysis.py` — Training metrics analysis
-
-## Reward Function Design (`奖励函数设计/`)
-
-The reward system uses multiple components:
-- Distance reward: smooth non-linear function toward goal
-- Target completion bonus: +400 pts
-- Collision penalty: −400 to −600 pts
-- Energy efficiency reward
-- Wind compensation reward
-- Obstacle avoidance safety reward
-
-The final integrated reward functions are in `reward_system.py` (PyBullet version) and embedded in `结合体.py` (simplified version).
+State/Observation space per drone: position (3), velocity (3), goal (3), obstacles (12×5), other drones ((n-1)×3), battery (1)
 
 ## Tech Stack
 
-- **PyBullet 3.2.5** — Physics simulation
-- **Gymnasium 0.28.1** — RL environment interface
-- **Stable-Baselines3 2.0.0** — PPO algorithm
-- **PyTorch 2.0.1** — Neural networks (TD3 custom implementation)
+- **PyTorch 2.0.1** — Neural networks (custom TD3)
+- **Gymnasium** — RL environment interface
 - **NumPy / Pandas / Matplotlib / Seaborn** — Data and visualization
-- **SciPy KDTree** — Spatial collision queries
+- **SciPy KDTree** — Spatial collision queries (simplified sim)
+- **PyBullet** — (deprecated/removed — earlier iteration only)
 
-## Trained Models
+## Reward System
 
-Pre-trained model checkpoints are stored in `基于pybullet的仿真模拟训练/model/`. `main.py` loads these for demo visualization.
+The reward function is distributed across implementations:
+- **Deep learning:** `environment.py` — distance-based reward, boundary collision penalty
+- **Simplified sim:** `结合体.py` — multi-component reward (distance, goal completion, collision, energy, wind compensation)
+
+## Project Evolution
+
+The project progressed through iterations:
+1. **PyBullet simulation** — physics-based, modular design (deprecated, code may not exist)
+2. **Simplified simulation** — lightweight multi-agent,放弃了物理真实性，专注于多智能体强化学习算法研究
+3. **Deep learning (TD3)** — custom PyTorch implementation, static environment training
