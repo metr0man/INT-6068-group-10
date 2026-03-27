@@ -1,135 +1,57 @@
-## 本文档假设读者完全没有RL背景，尽量用通俗易懂的语言解释复杂概念，让新手能够快速上手并理解强化学习的核心思想。
+# deeplearning1 - TD3 Baseline
 
-### 📁 项目结构
+**⚠️ 历史版本** - 完整 TD3 实现基线代码
+
+> 📌 推荐使用【🔥最新】简单环境+简单避障+简单三维仿真 中的最新优化版本
+
+---
+
+## 文件结构
+
 ```
-deeplearning1/ ← 你现在在这里！ 
-├── environment.py # 🌍 环境文件 - 定义无人机世界 
-├── td3.py # 🧠 TD3算法 - 智能体的大脑 
-├── model.py # 🏗️ 神经网络 - 大脑的具体结构 
-├── train.py # 🏃 训练脚本 - 开始训练！ 
-├── analysis.py # 📊 分析工具 - 看懂训练结果 
-├── training_log.csv # 📈 训练数据 - 记录学习过程 
-├── reward_curve.png # 📊 奖励曲线 - 可视化进步 
-└── td3_actor.pth # 💾 训练好的模型 - 你的成果
+deeplearning1/
+├── environment.py      # 无人机环境 (DroneEnv)
+├── td3.py             # TD3 算法核心
+├── model.py           # Actor/Critic 网络
+├── train.py           # 训练入口
+├── analysis.py        # 结果分析
+├── training_log.csv   # 训练日志
+├── reward_curve.png   # 奖励曲线
+├── td3_actor.pth      # 训练好的 Actor 网络
+├── td3_critic.pth     # 训练好的 Critic 网络
+└── td3_actor_*.pth    # 每 100 epoch 保存的检查点
 ```
 
-### 本次深度学习算法采用类似DDPG的[TD3算法](https://www.bilibili.com/video/BV1kP411X78D)实现。
-> 无人机是**连续动作控制**（x/y/z 三维速度，不是上下左右 4 个键），
-	TD3 就是目前**最适合连续控制**的 RL 算法之一，比 DQN 更适合飞无人机。
-- **算法对比与适用场景**
+---
 
-|   算法    |     核心优势      |      主要缺点      |      适用场景       |
-| :-----: | :-----------: | :------------: | :-------------: |
-|  DDPG   |   适用于连续动作空间   |   易过估计，稳定性差    |     简单机器人控制     |
-| **PPO** | **性能优异，实现简单** | **理论基础不如TRPO** | **几乎所有场景，推荐首选** |
-|  TRPO   |   保证策略单调提升    |   实现复杂，计算量大    |  需要严格保证稳定性的场景   |
-|   SAC   |  探索能力强，样本效率高  |      调参复杂      |    需要充分探索的环境    |
-|   **TD3**   |   **比DDPG更稳定**    |     **比PPO复杂**     |  **连续动作空间，需要高稳定性**  |
-| MADDPG  |   适用于多智能体系统   |   扩展性差，需大量训练   |   多机器人协作，游戏AI   |
-
-### [TD3算法](https://www.bilibili.com/video/BV1kP411X78D)原理速通🤓
- **TD3好比做智能体 / 算法 / 控制器**，主要负责：看状态 → 做决策 → 学怎么飞得更好 → 输出控制指令。
-
-TD3里面有两套网络：
-- **Actor（演员 / 策略网络）**
-- ![[Pasted image 20260228164137.png]]
-        看状态 → 输出动作
-        → 对应：无人机的 **“手和脚”**
-        简单地讲被强化学习的🐱
-- **Critic（评论家 / 价值网络）**
-- ![[9b3cf8c7-193c-4a6c-b798-41264cc369ca.png]]
-        评价这个动作好不好
-        → 对应：无人机的 **“老师 / 教练”**
-        简单地讲就是给每次强化学习打分的，理解为 **“真棒！”** 就好
-
-还有几个关键功能：
-
-- `select_action()`：**拿主意** → 告诉无人机现在怎么飞
-- `update()`：**学习更新** → 从经验里改错、变强
-
-## 🚀 5分钟快速开始
-
-
-### 第1步：运行你的第一个训练
-## [点击链接跳转Colab，逐步运行即可预览相同效果，省去环境部署（但是跑完要很久）](https://colab.research.google.com/drive/1do7k5KFhJ-CpMvLQHdmNUIqYWpbaNtfp#scrollTo=ZqEK_3Anj6BC)
+## 快速开始
 
 ```bash
+cd 1深度学习尝试/deeplearning1/
 python train.py
 ```
 
-你会看到类似这样的输出：
-````
-Episode 0 | Reward: -15.23 Episode 1 | Reward: -12.45 Episode 2 | Reward: -8.67 ... Episode 999 | Reward: -0.89
-````
+---
 
-**💡 发生了什么？**
-- 奖励（Reward）从负值逐渐接近0，说明无人机学得越来越好！
-- 负奖励表示无人机距离目标还有距离
-- 越接近0，说明无人机越接近目标
+## 算法配置
 
-### 第2步：查看训练结果
-训练完成后，你会得到：
+| 参数 | 值 |
+|------|-----|
+| 状态维度 | 6 (位置3 + 目标方向3) |
+| 动作维度 | 3 (速度指令 xyz) |
+| 学习率 | 3e-4 |
+| 折扣因子 | 0.99 |
+| 目标平滑噪声 | 0.2 |
+| 策略更新频率 | 2 |
+| 经验回放容量 | 100,000 |
+
+---
+
+## 与最新版本对比
+
+本目录为早期实验版本。如需查看收敛效果更好、包含 3D 可视化的最新代码，请使用：
+
 ```
-- `training_log.csv` - 详细训练数据
-- `reward_curve.png` - 奖励变化曲线
-- `td3_actor.pth` - 训练好的智能体模型
+【🔥最新】简单环境+简单避障+简单三维仿真/
+└── 【史诗级修复】优化+3D仿真新+曲线收敛+平滑噪声修正/
 ```
-## 🔍 每个文件详解
-
-### 🌍 environment.py - 无人机环境
-```python
-# 核心概念：环境 = 无人机 + 目标 + 物理规则
-class DroneEnv:
-    def reset(self):        # 重置环境到初始状态
-    def step(self, action): # 执行动作，返回新状态和奖励
-    def _get_state(self):   # 获取当前状态（位置+目标方向）
-```
-
-**关键参数（你可以修改的！）：**
-```python
-self.action_dim = 3      # 动作维度：x,y,z三个方向移动
-self.state_dim = 6       # 状态维度：位置(3) + 目标方向(3)
-self.max_step = 200      # 每回合最大步数
-```
-
-### 🧠 td3.py - 智能体大脑
-```python
-# 核心概念：TD3 = Twin Delayed Deep Deterministic Policy Gradient
-class TD3:
-    def select_action(self, state):  # 根据状态选择动作
-    def update(self, replay_buffer): # 从经验中学习
-```
-
-**关键超参数（调参重点！）：**
-```python
-lr = 3e-4              # 学习率：学习速度
-discount = 0.99        # 折扣因子：未来奖励的重要性
-policy_noise = 0.2     # 探索噪声：尝试新事物的程度
-policy_freq = 2        # 更新频率：多久更新一次策略
-```
-
-### 🏃 train.py - 训练过程
-```python
-# 训练循环：与环境交互 → 收集经验 → 更新策略
-for episode in range(max_episodes):
-    state = env.reset()
-    for t in range(200):
-        action = agent.select_action(state)
-        next_state, reward, done, _ = env.step(action)
-        replay_buffer.add(state, action, reward, next_state, done)
-        if len(replay_buffer) > 1000:
-            agent.update(replay_buffer)
-```
-
-### 📊 analysis.py - 结果分析
-```python
-# 分析训练结果，生成可视化图表
-def plot_reward_curve():     # 绘制奖励曲线
-def analyze_training_log():  # 分析训练日志
-def test_trained_model():    # 测试训练好的模型
-```
-
-## 🎮 理解核心概念
-
-### 🔄 强化学习循环
-````
