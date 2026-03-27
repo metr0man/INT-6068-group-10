@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "【🔥最新】Pre内容/第二部分：核心算法与神经网络细节 (Algorithm & Technical Details).md",
+                "file": "【🔥最新】Pre内容/🎹第四部分新：实验结果与 3D 轨迹展示 (面向连续控制的 UAV 三维路径规划与避障——TD3 强化学习模型训练效果评估）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "第二部分：核心算法与神经网络细节 (Algorithm & Technical Details)"
+              "title": "🎹第四部分新：实验结果与 3D 轨迹展示 (面向连续控制的 UAV 三维路径规划与避障——TD3 强化学习模型训练效果评估）"
             }
           }
         ]
@@ -185,9 +185,14 @@
   },
   "active": "8028ba48b551e8f3",
   "lastOpenFiles": [
+    "【🔥最新】Pre内容/第四部分：实验结果与 3D 轨迹展示 (Accuracy, Sample Results & Speed).md",
+    "【🔥最新】Pre内容/🎹第四部分新：实验结果与 3D 轨迹展示 (面向连续控制的 UAV 三维路径规划与避障——TD3 强化学习模型训练效果评估）.md",
+    "【🔥最新】Pre内容/小组汇报大纲.md",
+    "【🔥最新】Pre内容/Reference/基于 RL 的无人机路径规划文献综述.md",
+    "0觉得😵看这里/AIGC第四组海报(1).pptx  -   (1).pdf",
+    "【🔥最新】Pre内容/第二部分：核心算法与神经网络细节 (Algorithm & Technical Details).md",
     "【🔥最新】Pre内容/第一部分：项目背景与 MDP 建模.md",
     "0觉得😵看这里/强化学习/TD3 算法详解 (Twin Delayed DDPG).md",
-    "【🔥最新】Pre内容/Reference/基于 RL 的无人机路径规划文献综述.md",
     "【🔥最新】Pre内容/Reference/利用TD3训练神经网络使四旋翼无人机飞越FPV门 _ alphaXiv.pdf",
     "【🔥最新】Pre内容/Reference/TinyNav End-to-End TinyML for Real-TimeAutonomous Navigation on Microcontrollers.pdf",
     "【🔥最新】Pre内容/Reference/TD3Addressing Function Approximation Error in Actor-Critic Methods.pdf",
@@ -212,7 +217,6 @@
     "2基于简化仿真模拟的图像分析/visualizations/training_log_20250723_103839_correlation_heatmap.png",
     "2基于简化仿真模拟的图像分析/visualizations/training_log_correlation_heatmap.png",
     "0觉得😵看这里/基于强化学习的三维仿真智能体路径规划.pptx",
-    "0觉得😵看这里/介绍.txt",
     "2基于简化仿真模拟的图像分析/visualizations/steps_trend.png",
     "2基于简化仿真模拟的图像分析/visualizations/reward_vs_steps.png",
     "2基于简化仿真模拟的图像分析/visualizations/reward_trend.png"

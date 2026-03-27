@@ -2,55 +2,55 @@
 
 ---
 
-### 一、 PPT 文字大纲 (PPT Outline)
+### ~~一、 PPT 文字大纲 (PPT Outline)~~
 
-#### **Slide 10: 模型训练收敛分析 (Training Convergence & Learning Curve)**
+#### ~~**Slide 10: 模型训练收敛分析 (Training Convergence & Learning Curve)**~~
 
-- **5000 Episodes 学习曲线**：
+- ~~**5000 Episodes 学习曲线**：~~
     
-    - **探索期 (Exploration Phase)**：前数百个 Episode，无人机处于随机探索阶段，无法掌握雷达数据与动作的映射，频繁触发碰撞惩罚（Reward $\approx -200$）。
+    - ~~**探索期 (Exploration Phase)**：前数百个 Episode，无人机处于随机探索阶段，无法掌握雷达数据与动作的映射，频繁触发碰撞惩罚（Reward $\approx -200$）。~~
         
-    - **学习期 (Learning Phase)**：随着 Replay Buffer 数据积累和 TD3 网络的更新，模型开始理解势能奖励，逐渐学会向目标点飞行。
+    - ~~**学习期 (Learning Phase)**：随着 Replay Buffer 数据积累和 TD3 网络的更新，模型开始理解势能奖励，逐渐学会向目标点飞行。~~
         
-    - **收敛期 (Convergence Phase)**：Episode 后期，模型成功掌握避障策略，稳定获得到达奖励与势能奖励的叠加（Reward 稳定在正数，如 $+150 \sim +230$）。
+    - ~~**收敛期 (Convergence Phase)**：Episode 后期，模型成功掌握避障策略，稳定获得到达奖励与势能奖励的叠加（Reward 稳定在正数，如 $+150 \sim +230$）。~~
         
-- **量化性能指标 (Quantitative Metrics)**：
+- ~~**量化性能指标 (Quantitative Metrics)**：~~
     
-    - _到达成功率 (Success Rate)_：统计最后 500 个 Episode 的无碰撞到达目标的比例。
+    - ~~_到达成功率 (Success Rate)_：统计最后 500 个 Episode 的无碰撞到达目标的比例。~~
         
-    - _平均步数 (Average Steps)_：到达目标所需的平均飞行步数（越少说明路径越优化）。
-        
-
-#### **Slide 11: 实时推理与速度表现 (Real-time Inference & Speed)**
-
-- **训练耗时 (Training Time)**：
-    
-    - 5000 个 Episode 在 RTX 3090 (CUDA) 下的总训练时长（展现工程效率）。
-        
-- **推理速度与实时性 (Inference Speed - 核心优势)**：
-    
-    - **毫秒级响应**：训练完成后，无人机的“感知-决策”过程仅需通过 Actor 网络进行一次前向传播（Forward Pass）。
-        
-    - 仅涉及少量矩阵乘法运算，单次动作输出耗时 $< 5ms$。
-        
-    - **结论**：完全满足现实无人机在复杂环境下的高频实时控制需求（Real-time Control），远胜于需要在飞行中不断迭代计算的传统路径规划算法。
+    - ~~_平均步数 (Average Steps)_：到达目标所需的平均飞行步数（越少说明路径越优化）。~~
         
 
-#### **Slide 12: 3D 避障轨迹可视化 (3D Flight Trajectory Visualization)**
+#### ~~**Slide 11: 实时推理与速度表现 (Real-time Inference & Speed)**~~
 
-- **可视化方案构建 (Plotly 3D)**：
+- ~~**训练耗时 (Training Time)**：~~
     
-    - 提取模型测试阶段记录的 $(X, Y, Z)$ 坐标序列，绘制三维平滑航线。
+    - ~~5000 个 Episode 在 RTX 3090 (CUDA) 下的总训练时长（展现工程效率）。~~
         
-- **物理世界真实还原 (代码亮点展示)**：
+- ~~**推理速度与实时性 (Inference Speed - 核心优势)**：~~
     
-    - 障碍物渲染：使用 `go.Surface` 结合 `colorscale='Reds'` 渲染危险区，并设置 `opacity=0.4` 半透明，防止遮挡无人机飞行轨迹。
+    - ~~**毫秒级响应**：训练完成后，无人机的“感知-决策”过程仅需通过 Actor 网络进行一次前向传播（Forward Pass）。~~
         
-    - 空间比例锁定：**【关键设置】** 强制使用 `aspectmode='data'`，确保 X:Y:Z 轴比例严格为 1:1:1，还原绝对真实的球体避障空间，杜绝视觉误差。
+    - ~~仅涉及少量矩阵乘法运算，单次动作输出耗时 $< 5ms$。~~
         
-- **样本结果 (Sample Results)**：
+    - ~~**结论**：完全满足现实无人机在复杂环境下的高频实时控制需求（Real-time Control），远胜于需要在飞行中不断迭代计算的传统路径规划算法。~~
+        
+
+#### ~~**Slide 12: 3D 避障轨迹可视化 (3D Flight Trajectory Visualization)**~~
+
+- ~~**可视化方案构建 (Plotly 3D)**：~~
     
-    - 展示 1-2 个经典的“绕行避障”成功案例。
+    - ~~提取模型测试阶段记录的 $(X, Y, Z)$ 坐标序列，绘制三维平滑航线。~~
+        
+- ~~**物理世界真实还原 (代码亮点展示)**：~~
+    
+    - ~~障碍物渲染：使用 `go.Surface` 结合 `colorscale='Reds'` 渲染危险区，并设置 `opacity=0.4` 半透明，防止遮挡无人机飞行轨迹。~~
+        
+    - ~~空间比例锁定：**【关键设置】** 强制使用 `aspectmode='data'`，确保 X:Y:Z 轴比例严格为 1:1:1，还原绝对真实的球体避障空间，杜绝视觉误差。~~
+        
+- ~~**样本结果 (Sample Results)**：~~
+    
+    - ~~展示 1-2 个经典的“绕行避障”成功案例。~~
         
 
 ---
