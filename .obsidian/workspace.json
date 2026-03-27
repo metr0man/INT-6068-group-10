@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1深度学习尝试/README.md",
+                "file": "2简化仿真模拟环境下的结果/静态模拟/README.md",
                 "mode": "source",
                 "source": false
               },
@@ -185,6 +185,7 @@
   },
   "active": "8028ba48b551e8f3",
   "lastOpenFiles": [
+    "1深度学习尝试/README.md",
     "1深度学习尝试/deeplearning1/README.md",
     "1深度学习尝试/deeplearning1/reward_curve.png",
     "0觉得😵看这里/readme.md",
@@ -195,7 +196,6 @@
     "2简化仿真模拟环境下的结果/动态模拟/README.md",
     "2简化仿真模拟环境下的结果/静态模拟/README.md",
     "2简化仿真模拟环境下的结果/README.md",
-    "1深度学习尝试/README.md",
     "【🔥最新】Pre内容/README.md",
     "【🔥最新】简单环境+简单避障+简单三维仿真/【史诗级修复】优化+3D仿真新+曲线收敛+平滑噪声修正.rar",
     "【🔥最新】简单环境+简单避障+简单三维仿真/【史诗级修复】优化+3D仿真新+曲线收敛+平滑噪声修正/results_drone_Plz_Converge/td3_critic_3600.pth",
