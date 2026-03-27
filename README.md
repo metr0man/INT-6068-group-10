@@ -44,7 +44,7 @@
 ```
 强化学习算法：TD3 (Twin Delayed DDPG)
 深度学习框架：PyTorch 2.0.1
-环境接口：Gymnasium
+环境接口：Gymnasium [注意：本项目出于白盒化研究的考量没有直接继承 gym.Env]
 可视化：Matplotlib 3D / Plotly 3D HTML
 ```
 
