@@ -1,5 +1,6 @@
 # INT6068 - Neural Networks & Deep Learning
 ## 3D Drone Path Planning via Reinforcement Learning
+## Github respiratory：https://github.com/metr0man/INT-6068-group-10
 
 ### 项目概述
 
