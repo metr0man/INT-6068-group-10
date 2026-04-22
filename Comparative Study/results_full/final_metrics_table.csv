@@ -1,0 +1,9 @@
+,test_success_rate,test_success_rate,test_collision_rate,test_collision_rate,test_timeout_rate,test_timeout_rate,avg_final_distance,avg_final_distance,avg_test_reward,avg_test_reward
+,mean,std,mean,std,mean,std,mean,std,mean,std
+experiment_name,,,,,,,,,,
+baseline_no_curriculum_decay,0.9667,0.0577,0.0,0.0,0.0333,0.0577,1.3624,0.0285,164.4006,6.4974
+curriculum_decay,0.9667,0.0577,0.0,0.0,0.0333,0.0577,1.355,0.0426,164.0065,4.5353
+curriculum_large,0.9333,0.0577,0.0,0.0,0.0667,0.0577,1.5495,0.2862,159.4858,11.2903
+curriculum_small,0.9667,0.0577,0.0,0.0,0.0333,0.0577,1.3754,0.0137,163.5657,6.8761
+no_curriculum_large,0.9667,0.0577,0.0,0.0,0.0333,0.0577,1.373,0.0169,163.4619,4.692
+no_curriculum_small,0.9667,0.0577,0.0,0.0,0.0333,0.0577,1.3215,0.0162,164.6601,7.6118
